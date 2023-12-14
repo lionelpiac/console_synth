@@ -5,10 +5,20 @@ class Program
 {
     static void Main()
     {
-        
-        PlaySound(440, 1);  // Play a 440 Hz sound for 1 second
-        PlaySound(880, 1);  // Play an 880 Hz sound for 1 second
-        PlaySound(660, 1);  // Play a 660 Hz sound for 1 second
+
+        Console.WriteLine("Playing bass loop. Press any key to stop.");
+
+        while (!Console.KeyAvailable)
+        {
+            PlaySound(120, 1);  // Play a 440 Hz sound for 1 second
+            PlaySound(120, 1);  // Play an 880 Hz sound for 1 second
+            PlaySound(120, 1);  // Play a 660 Hz sound for 1 second
+            PlaySound(130, 1.2);  // Play a 660 Hz sound for 1.2 second
+        }
+
+        Console.ReadKey(true);
+
+        Console.WriteLine("Exiting the loop.");
 
         static void PlaySound(double frequency, double duration)
         {
@@ -22,7 +32,7 @@ class Program
                 // Keep the program running while the audio plays
                 while (waveOut.PlaybackState == PlaybackState.Playing)
                 {
-                    System.Threading.Thread.Sleep(200);
+                    System.Threading.Thread.Sleep(100);
                 }
             }
         }
