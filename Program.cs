@@ -6,9 +6,34 @@ class Program
     static void Main()
     {
 
-        Console.WriteLine("Playing bass loop. Press any key to stop.");
+        Console.WriteLine("Playing bass sequence. Press 'x' to stop.");
+        Boolean playSequence = true;
 
-        while (!Console.KeyAvailable)
+        while (playSequence==true){ 
+            PlaySequence();
+
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
+            if (keyInfo.Key == ConsoleKey.X)
+            {
+                Console.WriteLine("\nStopping sequence");
+                playSequence=false;
+            }
+            else
+            {
+                Console.WriteLine($"\nYou pressed '{keyInfo.KeyChar}', but 'x' was expected.");
+            }
+        }
+
+        //Console.ReadKey(true);
+
+        //Console.WriteLine("Stopping sound.");
+
+
+        static void PlaySequence()
+        {
+              while (!Console.KeyAvailable)
+        //while (Console.ReadKey().Key != ConsoleKey.X)
+
         {
             PlaySound(120, 1);  // Play a 440 Hz sound for 1 second
             PlaySound(120, 1);  // Play an 880 Hz sound for 1 second
@@ -16,9 +41,7 @@ class Program
             PlaySound(130, 1.2);  // Play a 660 Hz sound for 1.2 second
         }
 
-        Console.ReadKey(true);
-
-        Console.WriteLine("Exiting the loop.");
+        }
 
         static void PlaySound(double frequency, double duration)
         {
