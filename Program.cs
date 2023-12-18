@@ -56,5 +56,5 @@ public class WaveGeneratorWaveProvider : IWaveProvider
         return samplesToCopy * 4;
     }
 
-    private static int SampleRate => 44100;
+    private static int SampleRate => 48000;
 }
