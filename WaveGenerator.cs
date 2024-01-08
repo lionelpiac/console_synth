@@ -1,3 +1,5 @@
+// This file includes the WaveGenerator class
+
 using System;
 
 public class WaveGenerator
