@@ -26,9 +26,6 @@ class Program
 
         //Console.ReadKey(true);
 
-        //Console.WriteLine("Stopping sound.");
-
-
         static void PlaySequence()
         {
               while (!Console.KeyAvailable)
